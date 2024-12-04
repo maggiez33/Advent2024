@@ -1,3 +1,4 @@
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.io.File;
@@ -23,8 +24,11 @@ public class Day03 {
         System.out.println(allMatches);
         int sum = 0;
         for (int i = 0; i < allMatches.size(); i++) {
-
+            String line = allMatches.get(i).substring(4, allMatches.get(i).length() - 1);
+            String[] nums = line.split(",");
+            sum += Integer.parseInt(nums[0]) * Integer.parseInt(nums[1]);
         }
+        System.out.println(sum);
     }
 
     public static ArrayList<String> getFileData(String fileName) {
