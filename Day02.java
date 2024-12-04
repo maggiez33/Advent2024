@@ -17,13 +17,19 @@ public class Day02 {
             String[] report = fileData.get(i).split(" ");
             boolean safe = true;
             boolean inc = true;
+            boolean dec = false;
             if (Integer.parseInt(report[0]) < Integer.parseInt(report[1])) {
                 inc = false;
+                dec = true;
             }
             for (int j = 1; j < report.length; j++) {
                 int num1 = Integer.parseInt(report[j]);
                 int num2 = Integer.parseInt(report[j - 1]);
+                if (num1 - num2 >= 1 && num1 - num2 <= 3 && safe){
 
+                } else {
+
+                }
             }
         }
     }
