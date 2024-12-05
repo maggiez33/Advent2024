@@ -1,4 +1,5 @@
 
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.io.File;
@@ -18,20 +19,34 @@ public class Day02 {
             boolean safe = true;
             boolean inc = true;
             boolean dec = false;
-            if (Integer.parseInt(report[0]) < Integer.parseInt(report[1])) {
+            if (Integer.parseInt(report[0]) > Integer.parseInt(report[1])) {
                 inc = false;
                 dec = true;
             }
-            for (int j = 1; j < report.length; j++) {
-                int num1 = Integer.parseInt(report[j]);
-                int num2 = Integer.parseInt(report[j - 1]);
-                if (num1 - num2 >= 1 && num1 - num2 <= 3 && safe){
-
-                } else {
-
+            if (inc) {
+                for (int j = 1; j < report.length; j++) {
+                    int difference = Integer.parseInt(report[j]) - Integer.parseInt(report[j - 1]);
+                    if (difference < 1 || difference > 3) {
+                        safe = false;
+                        break;
+                    }
                 }
             }
+            if (dec) {
+                for (int j = 1; j < report.length; j++) {
+                    int difference = Integer.parseInt(report[j - 1]) - Integer.parseInt(report[j]);
+                    if (difference < 1 || difference > 3) {
+                        safe = false;
+                        break;
+                    }
+                }
+            }
+            if (safe) {
+                safeReports++;
+            }
         }
+        System.out.println(safeReports);
+
     }
 
     public static ArrayList<String> getFileData(String fileName) {
