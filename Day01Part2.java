@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Day01Part1 {
+public class Day01Part2 {
     public static void main(String[] args) {
 
         ArrayList<String> fileData = getFileData("src/Day1Input.txt");
