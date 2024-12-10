@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -8,47 +9,42 @@ public class Day02Part2 {
 
         ArrayList<String> fileData = getFileData("src/Day2Input.txt");
         int safeReports = 0;
-        int count = 0;
+
         for (int i = 0; i < fileData.size(); i++) {
             String[] report = fileData.get(i).split(" ");
             ArrayList<Integer> reportNums = new ArrayList<Integer>();
-            for (int numbers = 0; numbers < report.length; numbers++) {
-                reportNums.add(Integer.parseInt())
+            for (int number = 0; number < report.length; number++) {
+                reportNums.add(Integer.parseInt(report[number]));
             }
             boolean safe = true;
             boolean inc = true;
             boolean dec = false;
             int errors = 0;
 
-            if (Integer.parseInt(report[0]) > Integer.parseInt(report[1])) {
+            if (reportNums.get(0) > reportNums.get(1)) {
                 inc = false;
                 dec = true;
             }
             if (inc) {
-                for (int j = 1; j < report.length; j++) {
-                    int difference = Integer.parseInt(report[j]) - Integer.parseInt(report[j - 1]);
+                for (int j = 1; j < reportNums.size(); j++) {
+                    int difference = reportNums.get(j) - reportNums.get(j - 1);
                     if (difference < 1 || difference > 3) {
                         errors++;
-                    }
-                    if (errors > 1) {
-                        System.out.println(fileData.get(i));
                         System.out.println(errors);
-                        count++;
-                        safe = false;
+                        if (errors > 1) {
+                            safe = false;
+                        }
                     }
                 }
             }
             if (dec) {
-                for (int j = 1; j < report.length; j++) {
-                    int difference = Integer.parseInt(report[j - 1]) - Integer.parseInt(report[j]);
+                for (int j = 1; j < reportNums.size(); j++) {
+                    int difference = reportNums.get(j - 1) - reportNums.get(j);
                     if (difference < 1 || difference > 3) {
                         errors++;
-                    }
-                    if (errors > 1) {
-                        System.out.println(fileData.get(i));
-                        System.out.println(errors);
-                        count++;
-                        safe = false;
+                        if (errors > 1) {
+                            safe = false;
+                        }
                     }
                 }
             }
@@ -56,7 +52,6 @@ public class Day02Part2 {
                 safeReports++;
             }
         }
-        System.out.println(count);
         System.out.println(safeReports);
 
     }
