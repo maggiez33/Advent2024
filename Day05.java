@@ -1,5 +1,4 @@
 
-
 import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -13,48 +12,45 @@ public class Day05 {
 
         ArrayList<String> fileData = getFileData("src/Day5Input.txt");
         System.out.println(fileData.size());
-        ArrayList<String> ordered = new ArrayList<>();
-        ArrayList<String> rules = new ArrayList<>();
-        ArrayList<String> pages = new ArrayList<>();
+        ArrayList<int[]> ordered = new ArrayList<>();
+        ArrayList<int[]> rules = new ArrayList<>();
+        ArrayList<int[]> pages = new ArrayList<>();
+
         for (int i = 0; i < 1176; i++) {
             String[] r = fileData.get(i).split("\\|");
-            rules.add(Arrays.toString(r));
+            int[] rc = new int[r.length];
+            for (int j = 0; j < r.length; j++) {
+                rc[j] = Integer.parseInt(r[j]);
+            }
+            rules.add(rc);
         }
         for (int i = 1176; i < fileData.size(); i++) {
             String[] p = fileData.get(i).split(",");
-            pages.add(Arrays.toString(p));
+            int[] pc = new int[p.length];
+            for (int j = 0; j < p.length; j++) {
+                pc[j] = Integer.parseInt(p[j]);
+            }
+            pages.add(pc);
         }
 
         for (int i = 0; i < pages.size(); i++) {
-            System.out.println(pages.get(i).);
-            /*
-            boolean correct = true;
-            for (int j = 0; j < rules.size(); j++) {
-                for (int pageidx = 0; pageidx < pages.get(i).length(); pageidx++) {
+            boolean safe = false;
+            int pidx = 0;
+            while (pidx < pages.get(i).length) {
+                for (int j = 0; j < rules.size(); j++) {
+                    if (pages.get(i)[pidx] == rules.get(j)[0]) {
+                        System.out.println(pages.get(i)[pidx]);
+                        System.out.println(rules.get(j)[0]);
+                        if (Arrays.asList().get(i).)
+                    }
 
                 }
+                pidx++;
             }
-            if (correct) {
-                ordered.add(pages.get(i));
-            }
-            */
-        }
-        /*
-        int sum = 0;
-        for (int i = 0; i < ordered.size(); i++) {
-
         }
 
-        System.out.println(sum);
-
-         */
-        System.out.println(rules.get(0));
-        System.out.println(rules.getLast());
-        System.out.println(pages.get(0));
-        System.out.println(pages.getLast());
-        System.out.println(fileData.get(1175));
     }
-    public String[] applyRule
+
     public static ArrayList<String> getFileData(String fileName) {
         ArrayList<String> fileData = new ArrayList<String>();
         try {
