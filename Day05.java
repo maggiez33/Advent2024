@@ -1,4 +1,5 @@
 
+
 import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -41,7 +42,6 @@ public class Day05 {
                     if (pages.get(i)[pidx] == rules.get(j)[0]) {
                         System.out.println(pages.get(i)[pidx]);
                         System.out.println(rules.get(j)[0]);
-                        if (Arrays.asList().get(i).)
                     }
 
                 }
